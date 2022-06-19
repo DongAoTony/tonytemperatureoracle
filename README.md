@@ -59,6 +59,31 @@ yarn hardhat test
 ```shell
 docker.io/dongaomainland/tonytemperatureoracle
 ```
+并执行以下的步骤基于该镜像来验证：
+
+- 拉取镜像
+
+```
+docker pull dongaomainland/tony_oracle:latest
+```
+
+- 启动镜像容器
+
+```
+docker run -it --name myoracle tonytemperatureoracle:v1.0;
+```
+
+- 执行合约部署
+
+```
+docker exec -it myoracle /bin/sh -c "cd /usr/src/app; yarn deploy:local";
+```
+
+- 执行测试
+
+```
+docker exec -it myoracle /bin/sh -c "cd /usr/src/app; yarn test:local";
+```
 
 ## 设计说明
 
